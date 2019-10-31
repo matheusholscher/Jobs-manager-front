@@ -1,0 +1,1 @@
+export const WS_JOB = "http://localhost:8080/job"

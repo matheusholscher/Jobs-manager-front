@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JobService } from 'src/app/service/job.service';
+import { JobDto } from 'src/app/model/modelss';
 
 @Component({
   selector: 'app-list-jobs',
@@ -9,7 +10,7 @@ import { JobService } from 'src/app/service/job.service';
 })
 export class ListJobsComponent implements OnInit {
 
-  jobs = []
+  jobs : JobDto [] = []
 
   constructor(private jobService : JobService) { }
 
@@ -20,8 +21,7 @@ export class ListJobsComponent implements OnInit {
   listJobs(){
     this.jobService.listAll().subscribe(
       (result) => {
-          this.jobs = result as []
-          console.log(this.jobs)
+          this.jobs = result
       }
     )
   }
