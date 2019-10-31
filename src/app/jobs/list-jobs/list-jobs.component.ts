@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { JobService } from 'src/app/service/job.service';
 
 @Component({
   selector: 'app-list-jobs',
@@ -10,20 +11,17 @@ export class ListJobsComponent implements OnInit {
 
   jobs = []
 
-  constructor(private http : HttpClient) { }
+  constructor(private jobService : JobService) { }
 
   ngOnInit() {
     this.listJobs()
   }
 
   listJobs(){
-    this.http.get("http://localhost:8080/job").subscribe(
+    this.jobService.listAll().subscribe(
       (result) => {
           this.jobs = result as []
           console.log(this.jobs)
-      },
-      (error) => {
-        alert('Error! ' + error.message)
       }
     )
   }

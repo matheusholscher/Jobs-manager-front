@@ -1,14 +1,14 @@
 <table width="90%" border="1">
     <thead>
         <tr>
-                <th style="width: 30%;"> title></th>
+                <th style="width: 30%;">Title</th>
                 <th style="width: 15%;">Salary</th>
                 <th style="width: 15%;">Vacancies</th>
                 <th style="width: 15%;">Available Until</th>
                 <th style="width: 25%;">Company</th>
         </tr>
     </thead>
-    <body>
+    <tbody>
         <tr *ngFor="let j of jobs">
             <td>{{j.title}}</td>
             <td>{{j.salary}}</td>
@@ -16,5 +16,5 @@
             <td>{{j.availableUntil | date:"dd/MM/yyyy"}}</td>
             <td>{{j.company}}</td>
         </tr>
-    </body>
+    </tbody>
 </table>
