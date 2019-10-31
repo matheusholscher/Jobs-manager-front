@@ -20,6 +20,7 @@ export class ListJobsComponent implements OnInit {
     this.http.get("http://localhost:8080/job").subscribe(
       (result) => {
           this.jobs = result as []
+          console.log(this.jobs)
       },
       (error) => {
         alert('Error! ' + error.message)
