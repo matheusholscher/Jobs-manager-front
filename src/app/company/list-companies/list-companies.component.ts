@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyDto } from 'src/app/model/models';
+import { CompanyService } from 'src/app/service/company.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-companies',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListCompaniesComponent implements OnInit {
 
-  constructor() { }
+  companies : CompanyDto [] = []
+
+  constructor(private companyService : CompanyService,
+                      private router : Router) { }
 
   ngOnInit() {
+    this.listCompanies()
+  }
+
+  private listCompanies(){
+    this.companyService.listAll().subscribe(
+      (result) => {
+          this.companies = result
+  }
+    )
+}
+
+  openNewCompany(){
+    this.router.navigateByUrl('/new-company')
   }
 
 }

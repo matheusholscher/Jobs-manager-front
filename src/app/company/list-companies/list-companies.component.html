@@ -1,1 +1,16 @@
+<table width="90%" border="1">
+    <thead>
+        <tr>
+            <th style="width: 50%;">Name</th>
+            <th style="width: 30%;">Industry</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let c of company">
+            <th>{{c.name}}</th>
+            <th>{{c.industry}}</th>
+        </tr>
+    </tbody>
+</table>
 
+<input type="button" value="New company" (click)="openNewCompany()" />

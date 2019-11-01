@@ -1,1 +1,12 @@
-<p>new-company works!</p>
+<form>
+    Company name:<br />
+    <input type="text" name="companyName" [(ngModel)]="company.name" />
+
+    <br />
+    Industry:<br />
+    <select name="industry" [(ngModel)]="company.industryId">
+        <option *ngFor='let i of industries'>{{i.name}}</option>
+    </select>
+
+
+</form>

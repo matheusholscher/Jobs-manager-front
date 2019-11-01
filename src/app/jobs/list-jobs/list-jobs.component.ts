@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JobService } from 'src/app/service/job.service';
-import { JobDto } from 'src/app/model/modelss';
+import { JobDto } from 'src/app/model/models';
 
 @Component({
   selector: 'app-list-jobs',
@@ -18,7 +18,7 @@ export class ListJobsComponent implements OnInit {
     this.listJobs()
   }
 
-  listJobs(){
+  private listJobs(){
     this.jobService.listAll().subscribe(
       (result) => {
           this.jobs = result

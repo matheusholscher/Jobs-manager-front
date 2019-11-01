@@ -12,7 +12,7 @@ export class JobService {
     
     constructor(private http : HttpClient){ }
 
-    listAll() : Observable<JobDto> {
+    listAll() : Observable<JobDto[]> {
         return this.http.get<JobDto[]>(WS_JOB)
     }
 
